@@ -4,7 +4,6 @@
 -- lower level configuration and more robust one. (which-key will
 -- automatically pick-up stored data by this setting.)
 return {
-  -- first key is the mode
   n = {
     -- second key is the lefthand side of the map
     -- mappings seen under group name "Buffer"
@@ -20,9 +19,28 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    ["<C-l>"] = {
+      function()
+        os.execute("clear")
+      end,
+      desc = "Native clear terminal function" 
+    },
+    [","] = { 
+      "A,<esc>", 
+      desc = "Insert comma on end of line." 
+    },
+    [";"] = { 
+      "A;<esc>", 
+      desc = "Insert semicolon on end of line." 
+    },
   },
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
+    ["<C-l>"] = false,
+    ["<C-s>"] = { 
+      "<cmd>2ToggleTerm direction=horizontal<cr>",
+      desc = "Split active horizontal termina"
+    }
   },
 }
