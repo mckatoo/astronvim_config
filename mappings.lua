@@ -33,6 +33,24 @@ return {
       "A;<esc>", 
       desc = "Insert semicolon on end of line." 
     },
+    ["<C-l>"] = {
+      function() 
+        require("smart-splits").move_cursor_right() 
+      end,
+      desc = "Move to right split"
+    },
+    ["<S-l>"] = {
+      function() 
+        require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) 
+      end, 
+      desc = "Next buffer" 
+    },
+    ["<S-h>"] = {
+      function() 
+        require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) 
+      end,
+      desc = "Previous buffer",
+    }
   },
   t = {
     -- setting a mapping to false will disable it
@@ -40,7 +58,7 @@ return {
     ["<C-l>"] = false,
     ["<C-s>"] = { 
       "<cmd>2ToggleTerm direction=horizontal<cr>",
-      desc = "Split active horizontal termina"
+      desc = "Split active horizontal terminal"
     }
   },
 }
