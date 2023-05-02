@@ -50,7 +50,17 @@ return {
         require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) 
       end,
       desc = "Previous buffer",
-    }
+    },
+    ["<leader>tf"] = {
+      "<cmd>ToggleTerm direction=float<cr>", 
+      desc = "ToggleTerm float" 
+    },
+    ["<leader>th"] = {
+      "<cmd>ToggleTerm size=10 direction=horizontal<cr>", 
+      desc = "ToggleTerm horizontal split" },
+    ["<leader>tv"] = {
+      "<cmd>ToggleTerm size=80 direction=vertical<cr>", 
+      desc = "ToggleTerm vertical split" },
   },
   t = {
     -- setting a mapping to false will disable it
