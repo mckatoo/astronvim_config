@@ -57,10 +57,16 @@ return {
     },
     ["<leader>th"] = {
       "<cmd>ToggleTerm size=10 direction=horizontal<cr>", 
-      desc = "ToggleTerm horizontal split" },
+      desc = "ToggleTerm horizontal split"
+    },
     ["<leader>tv"] = {
       "<cmd>ToggleTerm size=80 direction=vertical<cr>", 
-      desc = "ToggleTerm vertical split" },
+      desc = "ToggleTerm vertical split"
+    },
+    ["<S-f>"] = {
+      "gg=G<cr>", 
+      desc = "Format with native command"
+    },
   },
   t = {
     -- setting a mapping to false will disable it
