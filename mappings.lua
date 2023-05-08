@@ -10,7 +10,10 @@ return {
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["<leader>bD"] = {
       function()
-        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr) require("astronvim.utils.buffer").close(bufnr) end)
+        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr)
+          require("astronvim.utils.buffer").close(
+            bufnr)
+        end)
       end,
       desc = "Pick to close",
     },
@@ -23,58 +26,62 @@ return {
       function()
         os.execute("clear")
       end,
-      desc = "Native clear terminal function" 
+      desc = "Native clear terminal function"
     },
-    [","] = { 
-      "A,<esc>", 
-      desc = "Insert comma on end of line." 
+    [","] = {
+      "A,<esc>",
+      desc = "Insert comma on end of line."
     },
-    [";"] = { 
-      "A;<esc>", 
-      desc = "Insert semicolon on end of line." 
+    [";"] = {
+      "A;<esc>",
+      desc = "Insert semicolon on end of line."
     },
     ["<C-l>"] = {
-      function() 
-        require("smart-splits").move_cursor_right() 
+      function()
+        require("smart-splits").move_cursor_right()
       end,
       desc = "Move to right split"
     },
     ["<S-l>"] = {
-      function() 
-        require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) 
-      end, 
-      desc = "Next buffer" 
+      function()
+        require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1)
+      end,
+      desc = "Next buffer"
     },
     ["<S-h>"] = {
-      function() 
-        require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) 
+      function()
+        require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1))
       end,
       desc = "Previous buffer",
     },
     ["<leader>tf"] = {
-      "<cmd>ToggleTerm direction=float<cr>", 
-      desc = "ToggleTerm float" 
+      "<cmd>ToggleTerm direction=float<cr>",
+      desc = "ToggleTerm float"
     },
     ["<leader>th"] = {
-      "<cmd>ToggleTerm size=10 direction=horizontal<cr>", 
+      "<cmd>ToggleTerm size=10 direction=horizontal<cr>",
       desc = "ToggleTerm horizontal split"
     },
     ["<leader>tv"] = {
-      "<cmd>ToggleTerm size=80 direction=vertical<cr>", 
+      "<cmd>ToggleTerm size=80 direction=vertical<cr>",
       desc = "ToggleTerm vertical split"
     },
     ["<S-f>"] = {
-      "gg=G<cr>", 
+      "gg=G<cr>",
       desc = "Format with native command"
     },
   },
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
+    ["<esc>"] = {
+      "<C-\\><C-n>",
+      desc = "ToggleTerm to visual mode."
+    },
     ["<C-l>"] = false,
-    ["<C-s>"] = { 
+    ["<C-s>"] = {
       "<cmd>2ToggleTerm direction=horizontal<cr>",
       desc = "Split active horizontal terminal"
-    }
+    },
   },
 }
